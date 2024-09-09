@@ -12,14 +12,10 @@ Instalation:
 You can download the source code from the repository, extract the folder and open the folder in a terminal
 after that you can run these script:
 
-npm install    
+    npm install    
+    node app.js
 
-node app.js
-
-you can open the app from your browser: http://localhost:3000
-
-
-
+after that you can open the app from your browser at: http://localhost:3000
 
 Demo (indonesian): https://drive.google.com/file/d/1GbPemXPfHt4_j7IoV0e2_nzhN3O_N7in/view?usp=sharing
  
