@@ -3,7 +3,7 @@ A Simple Pomodoro timer where you can manage your time and customize your tasks.
 
 Technologies:                                     
 Node.js: Backend framework for server-side logic and data handling.               
-Express.js: Web framework for handling HTTP requests and routing (if applicable).        
+Express.js: Web framework for handling HTTP requests and routing.        
 Vanilla JavaScript: Frontend logic for managing timers and user interactions.        
 HTML/CSS: For creating the user interface and styling the app.        
 Browser Storage: For persisting user data on the client-side.   
