@@ -1,4 +1,4 @@
-#Pomodoro App 
+# Pomodoro App 
 
 ![Screenshot (195)](https://github.com/user-attachments/assets/187f7e6f-9f3c-4273-b5c8-7f050e0b4084)                                
 A Simple Pomodoro timer where you can manage your time and customize your tasks.
