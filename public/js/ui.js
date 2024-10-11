@@ -1,5 +1,4 @@
 
-
 import { getSessionSetting,setSessionSetting,saveNewTask ,updateData, deleteData} from "./storage.js";
 
 
@@ -86,9 +85,10 @@ export function startTimer(startButton){
 
     let displayTime = document.getElementById("timer").innerHTML.split(":");
     const isTimerRunning = startButton.dataset.status === "active" ? true : false;
-    const audio = document.getElementById("notification");
+    const audio = new Audio("./audio/notification.mp3");
     const activeEnv = document.querySelectorAll(".envBtn");
     let isPomodoro = false;
+    let status = false;
     activeEnv.forEach(button =>{
        // console.log(button.dataset.status);
         if(button.dataset.status === "active" && button.dataset.choice === "pomodoro" ){
@@ -102,7 +102,7 @@ export function startTimer(startButton){
         startButton.dataset.status = "active";
 
         let time = Number(displayTime[0]*60) + Number([displayTime[1]])-1;
-        countDown = setInterval( () =>{
+        countDown = setInterval(async () =>{
             let minutes = Math.floor(time/60);
             let seconds = time % 60;
     
@@ -120,14 +120,15 @@ export function startTimer(startButton){
                 
                 if(isPomodoro){
                     
-                    updateData();
+                   updateData();
                 }
+                
+                await playAudio(audio);
+                alert("Time is UP!");
+                location.reload();
+
+                  
                
-                audio.play();
-                setTimeout(() => {
-                   alert("Time is Up!");
-                    location.reload();
-                }, 2000);
             }
     
         }, 1000);
@@ -187,7 +188,7 @@ export function setTime(){
 
 }
 
-export function  addNewTask(){
+export function addNewTask(){
 
     const popUp = document.getElementsByClassName("overlay")[1];
     
@@ -199,31 +200,41 @@ export function  addNewTask(){
         })
 
     const addForm = document.getElementById("addList");
-    addForm.addEventListener("submit", ()=>{
-
+    addForm.addEventListener("submit",async (e)=>{
+        e.preventDefault();
         const newTask = document.getElementById("taskTxt").value;
         const pomodoroEst = document.getElementById("pomodoroEst").value;
 
         const newData = {
-            user_id: 1, //id akan selalu 1, karena tidak fungsi untuk menambah user
+            user_id: 1, //id akan selalu 1, karena tidak ada fungsi untuk menambah user
             data : [{task: newTask,pomodoro_est : Number(pomodoroEst),completed : 0}],
             
             
             
         };
 
-        saveNewTask(newData);
-        alert("Data added");
+        const status = await saveNewTask(newData);
+        
+        
         location.reload();
                 
     })
 
 }
 
-export function deleteTask(id){
-    deleteData(Number(id));
-    alert("Data deleted");
+export async function deleteTask(id){
+    await deleteData(Number(id));
     location.reload();
 
 
+}
+
+function playAudio(audio){
+    
+    return new Promise(res=>{
+        audio.play();
+        audio.onended = res;
+    })
+    
+    
 }

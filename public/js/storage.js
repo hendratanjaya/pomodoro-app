@@ -18,41 +18,52 @@ export function setSessionSetting(userSetting){
 
 }
 
-export function saveNewTask(newData){
+export async function saveNewTask(newData){
 
-    fetch("/upload", {
+    const response = await fetch("/upload", {
         method: "POST",
         headers :{
             "Content-Type": "application/json",
         },
         body : JSON.stringify({input : newData}),
-    }).then(response => response.json()).then(data => {
-        console.log("Succes : ", data);
-    }).catch((error) =>{
-        console.log("Error: ",error);
     })
+
+    if(response.ok)
+        return true;
+
+    return false;
 
 }
 
-export function updateData(){
-    fetch("/update", {
+export async function updateData(){
+
+    const response = await fetch("/update", {
         method: "POST",
         headers :{
             "Content-Type": "application/json",
         },
         body : JSON.stringify({user_id : 1}),
     })
+    if(response.ok)
+        return true;
+
+    return false;
 
 }
 
-export function deleteData(id){
+export async function deleteData(id){
 
-    fetch("/delete", {
+    const response = await fetch("/delete", {
         method: "DELETE",
         headers :{
             "Content-Type": "application/json",
         },
         body : JSON.stringify({index : id}),
     })
+
+    if(response.ok)
+        return true;
+    
+    return false;
 
 }
