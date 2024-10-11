@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const { log } = require("console");
 const app = express();
+const ejs = require("ejs");
 
 const port = 3000;
 
@@ -11,7 +12,7 @@ app.set("views", "views");
 app.use(express.static("public"));
 app.use(express.json());
 
-app.get("/", async (req,res)=>{
+app.get("/", (req,res)=>{
 
     const filePath = path.join(__dirname,"db","user.json");
    
@@ -144,7 +145,7 @@ app.delete("/delete",(req,res) =>{
         let users = JSON.parse(data);
         
         users[0].data.splice(id,1);
-        users[0] = { ...users[0], data: [...users[0].data] };
+       
 
         fs.writeFile(filePath, JSON.stringify(users,null,2), (err) =>{
 
