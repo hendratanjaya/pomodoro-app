@@ -16,6 +16,10 @@ after that you can run these script:
     npm install    
     node app.js
 
+or after npm install you can just type:
+
+     npm start
+
 after that you can open the app from your browser at: http://localhost:3000
 
 
