@@ -165,6 +165,6 @@ app.delete("/delete",(req,res) =>{
 })
 
 app.listen(port,()=>{
-    console.log("Server ready");
+    console.log("Server ready: http://localhost:3000/");
     
 });
