@@ -2,6 +2,7 @@
 
 ![Screenshot (195)](https://github.com/user-attachments/assets/187f7e6f-9f3c-4273-b5c8-7f050e0b4084)                                
 A Simple Pomodoro timer where you can manage your time and customize your tasks.
+This project helped me understand async and sync concept in JavaScript, I really enjoyed the process of learning I'm going throughed with this project. 
 
 Technologies:                                     
 - Node.js (express): Backend framework for server-side logic and data handling.               
