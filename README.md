@@ -12,7 +12,7 @@ Technologies:
 
 Instalation: 
 You can download the source code from the repository, extract the folder and open the folder in a terminal
-after that you can run these script:
+after that you can run these script(you need node.js installed in your device):
 
     npm install    
     node app.js
