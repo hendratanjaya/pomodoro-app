@@ -24,5 +24,8 @@ or after npm install you can just type:
 after that you can open the app from your browser at: http://localhost:3000
 
 
+You can watch my demonstration video (Indonesian) [here](https://drive.google.com/file/d/1fOiyFPlAKoPh1ocsvyPeXXh5eUVaXO1l/view?usp=sharing)
+thank you~
+
  
  
